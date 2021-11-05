@@ -1,15 +1,26 @@
-<form>
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email</label>
-      <input (ngModel)="email" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+<div class="container">
+  
+  <div class="text-center form-login">
+    <div class="mb-3 row">
+      <label for="Email" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="email" type="email" class="form-control" id="" required="true" value="">
+      </div>
     </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Senha</label>
-      <input (ngModel)="senha" name="" type="password" class="form-control" id="exampleInputPassword1">
+    <div class="mb-3 row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Senha</label>
+      <div class="col-sm-10">
+        <input  [(ngModel)]="senha" name="" type="password" required="true" class="form-control" id="inputPassword">
+      </div>
     </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">lembrar senha</label>
-    </div>
-    <button (click)="fazerLogin()" type="submit" class="btn btn-primary" >Enviar</button>
-  </form>
+      
+    <button  class="btn btn-primary text-white" (click)="fazerLogin()">Acessar</button>
+    <button  class="btn btn-primary text-white" (click)="cadastrar()">Cadastrar</button>
+  <!--  <a (click)="liberarCadastro()" *ngIf="mostrarCadastro" class="btn bg-primary text-white" href="cadastro">Cadastrar</a> -->
+   </div>
+</div>
+
+<!-- <app-cadastro *ngIf="mostrarCadastro"></app-cadastro> -->
+  
+  <!-- routerLink="/home" -->

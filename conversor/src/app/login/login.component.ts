@@ -1,4 +1,7 @@
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
+import { FormGroupName } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,18 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
  
-email:any;
-senha:any;
+public email:any;
+public senha:any;
 
-  constructor() { }
+public mostrarCadastro = false;
+
+  constructor(public authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  fazerLogin() {
-
-    console.log(this.email, "email login")
-    console.log(this.senha, "senha login")
+  liberarCadastro() {
+    this.mostrarCadastro = !this.mostrarCadastro
   }
 
+  fazerLogin() {
+    this.authService.loginWithEmail(this.email,this.senha)
+    this.router.navigate(['/home'])
+  }
+
+  cadastrar() {
+    this.router.navigate(['/cadastro'])
+  }
+
+  /* acessar() {
+    this.router.navigate(['/home'])
+  } */
 }
+

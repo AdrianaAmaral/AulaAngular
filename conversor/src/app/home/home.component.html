@@ -1,10 +1,29 @@
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-      HOME
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-      <li><button class="dropdown-item" type="button"> 1 opção </button></li>
-      <li><button class="dropdown-item" type="button"> 2 opção </button></li>
-      <li><button class="dropdown-item" type="button"> 3 opção </button></li>
-    </ul>
+
+ 
+    <div class="container">
+      <div class="row text-center prin center">
+
+          <h1 class="page-title">
+            Conversor de moedas
+          </h1>
+
+          
+          <select [(ngModel)]="moeda2" class="form-select" aria-label="Default select example">
+            <option  selected>Selecione a moeda que você ser converter</option>
+            <option  *ngFor="let item of lista" [value]="item.high" >{{item.name}}</option>
+          </select>
+          <input [(ngModel)]="moeda1" class="form-select" aria-label="Default select example">
+          <option  selected>Digite o valor a ser convertido</option>
+
+         <button  (click)="fazerConversao()" class="btn-primary btn-convert">Converter</button>
+      
+         <button  class="btn-primary btn-convert" (click)="sair()">Sair</button>
+    
+            <b>Resultado:</b>
+
+            <p> R$ {{resultadoConvercao}}</p>
+
+      </div>
+      
   </div>
+

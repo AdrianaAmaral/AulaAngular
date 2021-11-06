@@ -14,11 +14,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { NavComponent } from './nav/nav.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { Page404Component } from './page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +22,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     LoginComponent,
     HomeComponent,
     CadastroComponent,
-    NavComponent,
-    
-     
+    Page404Component,
+        
   ],
   imports: [
     CommonModule,
@@ -36,10 +31,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatSnackBarModule,
-    MatListModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(
       {

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import firebase from 'firebase/app';
+import  firebase  from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AuthService {
   authError: any;
   
   
-  constructor(public firebaseAuth: AngularFireAuth) {
+  constructor(public firebaseAuth: AngularFireAuth, private router: Router ) {
   //this.user = firebaseAuth.authState;
     
   }
@@ -22,12 +23,13 @@ export class AuthService {
   thisService.authError = null;
   this.firebaseAuth.signInWithEmailAndPassword(email,senha)
   .then(() =>{
-    alert("usuário logado")
+    alert("usuário logado");
+    this.router.navigate(['/home'])
   }
   ).catch((error)=>{
   console.log(error.message);
-  alert("usuario ou senha inexistente")
   thisService.authError = error;
+  window.alert("usuario ou senha inexistente")
       
   })
   }

@@ -5,22 +5,25 @@
     <div class="mb-3 row">
       <label for="Email" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10">
-        <input [(ngModel)]="email" type="email" class="form-control" id="" required="true" value="">
+        <input [(ngModel)]="email" type="email" class="form-control" id="" required="true" value="" placeholder="Digite seu email">
+      <div *ngIf="email.invalid"></div>
       </div>
     </div>
     <div class="mb-3 row">
       <label for="inputPassword" class="col-sm-2 col-form-label">Senha</label>
       <div class="col-sm-10">
-        <input  [(ngModel)]="senha" name="" type="password" required="true" class="form-control" id="inputPassword">
+        <input  [(ngModel)]="senha" name="" type="password" required="true" class="form-control" id="inputPassword" placeholder="Digite sua senha">
+      <div *ngIf="senha.invalid"></div>
       </div>
     </div>
       
-    <button  class="btn btn-primary text-white" (click)="fazerLogin()">Acessar</button>
-    <button  class="btn btn-primary text-white" (click)="cadastrar()">Cadastrar</button>
-  <!--  <a (click)="liberarCadastro()" *ngIf="mostrarCadastro" class="btn bg-primary text-white" href="cadastro">Cadastrar</a> -->
-   </div>
-</div>
-
-<!-- <app-cadastro *ngIf="mostrarCadastro"></app-cadastro> -->
+    <button  (click)="fazerLogin()" [disabled]="email.invalid || senha.invalid" class="btn bg-primary text-white"> Acessar</button>
+    <button (click)="liberarCadastro()" class="btn bg-primary text-white">Cadastrar</button>
+  </div>
   
-  <!-- routerLink="/home" -->
+  
+  <div class="col-6">
+    <app-cadastro *ngIf="mostrarCadastro" ></app-cadastro>
+  </div>
+
+
